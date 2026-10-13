@@ -6453,91 +6453,84 @@ html {
   }
 }
 /* ============================================================
-   Aggressive Google NTP cleanup - force hide remaining elements
+   Google New Tab Page rebrand
+   Matches the classic dark Google Chrome NTP look
    ============================================================ */
 
-/* Theme */
-:root, [data-theme], [data-theme=raplon], [data-theme=midnight],
-[data-theme=darker], [data-theme=forest], [data-theme=sunset],
-[data-theme=nord], [data-theme=mono], [data-theme=light],
-[data-theme=abyss], [data-theme=matcha], [data-theme=ember],
-[data-theme=glacier], [data-theme=void], [data-theme=peach],
-[data-theme=synthwave], [data-theme=fall] {
-  --bg-base: #202124 !important;
-  --bg-1-base: #292a2d !important;
-  --bg-2-base: #303134 !important;
-  --bg-3-base: #3c4043 !important;
-  --bg-4-base: #5f6368 !important;
-  --bg: #202124 !important;
-  --bg-1: #292a2d !important;
-  --bg-2: #303134 !important;
-  --bg-3: #3c4043 !important;
-  --bg-4: #5f6368 !important;
-  --accent: #8ab4f8 !important;
-  --accent-2: #aecbfa !important;
-  --accent-glow: #8ab4f840 !important;
-  --text: #e8eaed !important;
-  --text-muted: #9aa0a6 !important;
-  --bright-text: #ffffff !important;
-  --border: #3c4043 !important;
-  --border-2: #5f6368 !important;
-  --border-3: #80868b !important;
-  --border-4: #9aa0a6 !important;
+/* ---- Core theme: dark Google NTP ---- */
+:root,
+[data-theme],
+[data-theme=raplon],
+[data-theme=midnight],
+[data-theme=darker],
+[data-theme=forest],
+[data-theme=sunset],
+[data-theme=nord],
+[data-theme=mono],
+[data-theme=light],
+[data-theme=abyss],
+[data-theme=matcha],
+[data-theme=ember],
+[data-theme=glacier],
+[data-theme=void],
+[data-theme=peach],
+[data-theme=synthwave],
+[data-theme=fall] {
+  --bg-base: #202124;
+  --bg-1-base: #292a2d;
+  --bg-2-base: #303134;
+  --bg-3-base: #3c4043;
+  --bg-4-base: #5f6368;
+
+  --bg: #202124;
+  --bg-1: #292a2d;
+  --bg-2: #303134;
+  --bg-3: #3c4043;
+  --bg-4: #5f6368;
+
+  --accent: #8ab4f8;
+  --accent-2: #aecbfa;
+  --accent-glow: #8ab4f840;
+
+  --text: #e8eaed;
+  --text-muted: #9aa0a6;
+  --bright-text: #ffffff;
+
+  --border: #3c4043;
+  --border-2: #5f6368;
+  --border-3: #80868b;
+  --border-4: #9aa0a6;
 }
 
+/* ---- Base ---- */
 html, body, #_xi9j4u0 {
   background: #202124 !important;
   color: #e8eaed !important;
   font-family: "Google Sans", "Product Sans", "Segoe UI", Roboto, Arial, sans-serif !important;
-  height: 100vh !important;
   min-height: 100vh !important;
-  width: 100vw !important;
   margin: 0 !important;
   padding: 0 !important;
-  overflow: hidden !important;
 }
 
-/* Hide left sidebar */
+/* ---- Completely remove left sidebar ---- */
 .flex.flex-col.items-center.gap-0\.5.flex-1,
-div:has(> .flex.flex-col.items-center.gap-0\.5.flex-1) {
+div:has(> .flex.flex-col.items-center.gap-0\.5.flex-1),
+aside:has(.flex.flex-col.items-center.gap-0\.5.flex-1),
+nav:has(.flex.flex-col.items-center.gap-0\.5.flex-1),
+[class*="sidebar"],
+[class*="Sidebar"] {
   display: none !important;
   width: 0 !important;
-  height: 0 !important;
+  min-width: 0 !important;
+  max-width: 0 !important;
   overflow: hidden !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
   pointer-events: none !important;
 }
 
-/* ========== HIDE TOP BAR ========== */
-header,
-[class*="titlebar"],
-[class*="toolbar"],
-[class*="tabbar"],
-[class*="TabBar"],
-[class*="top-bar"],
-[class*="TopBar"],
-[class*="appbar"],
-[class*="AppBar"],
-div.fixed.top-0,
-div.sticky.top-0,
-div[class*="fixed"][class*="top"],
-div[class*="absolute"][class*="top-0"],
-div:has(input[value*="raplon"]),
-div:has([value*="raplon://"]),
-div:has(> div > input[type="text"]),
-/* The whole top chrome area */
-body > div > div:first-child,
-#_xi9j4u0 > div:first-child {
-  display: none !important;
-  height: 0 !important;
-  min-height: 0 !important;
-  max-height: 0 !important;
-  opacity: 0 !important;
-  pointer-events: none !important;
-  overflow: hidden !important;
-  z-index: -1 !important;
-}
-
-/* ========== CENTER CONTENT ========== */
+/* ---- Center the whole page content like Google NTP ---- */
 body, #_xi9j4u0 {
   display: flex !important;
   flex-direction: column !important;
@@ -6546,145 +6539,164 @@ body, #_xi9j4u0 {
   text-align: center !important;
 }
 
-/* Title */
-h1, [class*="logo"], [class*="brand"], [class*="title"],
-.text-5xl, .text-6xl, .text-7xl, .text-8xl {
+/* ---- Big centered "Google" style title ---- */
+h1, 
+[class*="logo"],
+[class*="brand"],
+[class*="title"],
+.text-5xl, .text-6xl, .text-7xl, .text-8xl,
+[class*="text-5xl"], [class*="text-6xl"], [class*="text-7xl"] {
   font-size: 90px !important;
   font-weight: 400 !important;
   color: #ffffff !important;
-  letter-spacing: -2px !important;
-  margin: 0 0 6px 0 !important;
+  letter-spacing: -1.5px !important;
+  margin: 0 0 28px 0 !important;
+  text-shadow: none !important;
+  background: none !important;
   -webkit-text-fill-color: #ffffff !important;
 }
 
-/* Subtitle */
-p, [class*="subtitle"] {
-  color: #9aa0a6 !important;
-  margin-bottom: 20px !important;
+/* Force any remaining pink/red title colors to white */
+[style*="color"][style*="ff"],
+[class*="text-"][class*="pink"],
+[class*="text-"][class*="rose"],
+[class*="text-"][class*="red"] {
+  color: #ffffff !important;
 }
 
-/* Search */
+/* ---- Search bar → white Google-style pill ---- */
 input[type="search"],
 input[type="text"],
 input[placeholder*="Search"],
 input[placeholder*="search"],
 input[placeholder*="Ask"],
-[class*="search"] input {
+[class*="search"] input,
+[role="search"] input {
   background: #ffffff !important;
   color: #202124 !important;
   border: none !important;
   border-radius: 24px !important;
-  height: 48px !important;
-  max-width: 560px !important;
-  width: 90vw !important;
-  padding: 0 22px !important;
+  height: 46px !important;
+  min-height: 46px !important;
+  width: 100% !important;
+  max-width: 584px !important;
+  padding: 0 20px !important;
   font-size: 16px !important;
-  box-shadow: 0 1px 6px rgba(32,33,36,0.28) !important;
+  box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28) !important;
   outline: none !important;
-  margin: 0 auto 24px auto !important;
 }
 
+input[type="search"]:focus,
+input[type="text"]:focus,
+input[placeholder*="Search"]:focus,
+input[placeholder*="Ask"]:focus {
+  background: #ffffff !important;
+  box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28) !important;
+  border: none !important;
+  outline: none !important;
+}
+
+/* Placeholder color */
 input::placeholder {
   color: #5f6368 !important;
+  opacity: 1 !important;
 }
 
-/* ========== HIDE BOTTOM CARDS + DISCORD + ONLINE ========== */
-
-/* Hide Discord button */
-a[href*="discord"],
-button:has([class*="discord"]),
-div:has(> a[href*="discord"]),
-[class*="discord"],
-a:has(span:contains("Discord")),
-div:has(span:contains("Join our Discord")),
-div:has(button:contains("Discord")) {
-  display: none !important;
+/* ---- Shortcut / app icons row → circular Google shortcuts ---- */
+[class*="grid"] > div,
+[class*="flex"] > a,
+[class*="flex"] > button,
+[class*="apps"] > *,
+[class*="shortcuts"] > * {
+  /* keep structure but style children */
 }
 
-/* Hide every card-like box */
-div[class*="card"],
-div[class*="Card"],
-div[class*="rounded-xl"],
-div[class*="rounded-2xl"],
-div[class*="rounded-lg"][class*="border"],
-div[class*="rounded"][class*="border"][class*="bg-"],
-div[class*="shadow"] {
-  display: none !important;
-}
-
-/* Hide any flex/grid that contains multiple rounded boxes (the card row) */
-.flex:has(> div[class*="rounded"]),
-.grid:has(> div[class*="rounded"]),
-div.flex.gap-2,
-div.flex.gap-3,
-div.flex.gap-4,
-div.flex.gap-5,
-div.flex.gap-6 {
-  display: none !important;
-}
-
-/* Hide online status */
-[class*="online"],
-[class*="presence"],
-div:has(> svg + span),
-div:has(span:contains("Checking")) {
-  display: none !important;
-}
-
-/* Nuclear: hide the last several children of the main container */
-#_xi9j4u0 > div > *:nth-last-child(-n+4),
-body > div > div > *:nth-last-child(-n+4),
-#_xi9j4u0 > * > *:nth-last-child(-n+4) {
-  display: none !important;
-}
-
-/* Extra safety - hide anything near the bottom of the viewport */
-div {
-  /* can't do position-based easily without more info */
-}
-
-/* ========== Settings button ========== */
-body::after {
-  content: "⚙️" !important;
-  position: fixed !important;
-  bottom: 18px !important;
-  left: 18px !important;
-  width: 42px !important;
-  height: 42px !important;
-  background: #303134 !important;
-  border: 1px solid #5f6368 !important;
+/* Make icon buttons circular and dark */
+a[class*="rounded"],
+button[class*="rounded"],
+div[class*="rounded-full"],
+[class*="icon"] {
   border-radius: 50% !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  font-size: 18px !important;
-  line-height: 42px !important;
-  text-align: center !important;
-  cursor: pointer !important;
-  z-index: 999999 !important;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.4) !important;
-  transition: background 0.15s, transform 0.15s !important;
-  user-select: none !important;
-  pointer-events: auto !important;
 }
 
-body::after:hover {
-  background: #3c4043 !important;
-  transform: scale(1.1) !important;
+/* Soften any remaining colored backgrounds on icons */
+[class*="bg-"] {
+  /* leave most alone */
 }
 
-/* Fullscreen force */
-body, #_xi9j4u0, main {
-  margin: 0 !important;
-  padding: 0 !important;
-  width: 100vw !important;
-  max-width: 100vw !important;
-  height: 100vh !important;
+/* ---- Hide elements that don't belong on Google NTP ---- */
+/* Discord / social buttons, status text, online indicators, etc. */
+[class*="discord"],
+[href*="discord"],
+[class*="online"],
+[class*="status"],
+[class*="presence"],
+button:has([class*="discord"]),
+a:has([class*="discord"]) {
+  display: none !important;
 }
 
-/* Kill pink */
-[class*="text-rose"], [class*="text-red"], [class*="text-pink"],
-[class*="bg-rose"], [class*="bg-red"], [class*="bg-pink"] {
+/* ---- Cards / containers transparent or dark ---- */
+[class*="card"],
+[class*="panel"],
+[class*="modal"] {
+  background: #292a2d !important;
+  border: 1px solid #3c4043 !important;
+  border-radius: 12px !important;
+  box-shadow: none !important;
+}
+
+/* ---- Links ---- */
+a {
+  color: #8ab4f8 !important;
+  text-decoration: none !important;
+}
+a:hover {
+  text-decoration: underline !important;
+}
+
+/* ---- Scrollbars (subtle) ---- */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #5f6368;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #80868b;
+}
+
+/* ---- Remove any leftover pink/rose/red accents ---- */
+[class*="text-rose"],
+[class*="text-red"],
+[class*="text-pink"],
+[class*="bg-rose"],
+[class*="bg-red"],
+[class*="bg-pink"],
+[class*="border-rose"],
+[class*="border-red"],
+[class*="border-pink"] {
   color: #e8eaed !important;
-  background: transparent !important;
+  background-color: transparent !important;
+  border-color: #3c4043 !important;
+}
+
+/* ---- Ensure full width & no leftover margins from old sidebar ---- */
+body, #_xi9j4u0, main, [class*="content"], [class*="main"] {
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+/* ---- Extra: make the whole home view feel empty & centered ---- */
+#_xi9j4u0 > * {
+  max-width: 680px;
+  margin-left: auto;
+  margin-right: auto;
 }
