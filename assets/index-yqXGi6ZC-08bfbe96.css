@@ -6490,28 +6490,22 @@ body, #_xi9j4u0, main {
   max-width: 100% !important;
 }
 
-/* ========== Hide comments section at the bottom ========== */
-[id*="comment" i],
-[class*="comment" i],
-[data-testid*="comment" i],
-[aria-label*="comment" i],
-[data-section*="comment" i],
-section:has(> [class*="comment" i]),
-div:has(> textarea[placeholder*="comment" i]),
-div:has(> input[placeholder*="comment" i]) {
+/* ========== Hide the shortcut row (Games/AI/Music/Chat circles, labels, Add, All Apps) ========== */
+/* each circle + its label */
+*:has(> .rounded-full.h-14.w-14),
+*:has(> .rounded-full.size-14),
+*:has(> .rounded-full.h-14),
+/* the whole row holding them (also catches Add / All Apps beside them) */
+*:has(> * > .rounded-full.h-14.w-14),
+*:has(> * > .rounded-full.size-14),
+*:has(> * > .rounded-full.h-14) {
   display: none !important;
 }
 
-/* ========== Hide the circular Games / Chat / etc. buttons ========== */
-[aria-label*="chat" i],
-[title*="chat" i],
-[data-testid*="chat" i],
-[aria-label*="games" i],
-[title*="games" i],
-[data-testid*="games" i],
-button.rounded-full:has(svg),
-a.rounded-full:has(svg),
-[role="tab"].rounded-full,
-.flex.flex-col.items-center > .rounded-full {
+/* ========== Hide the comments strip at the bottom ========== */
+.scrollbar-none:has(img),
+.overflow-x-auto:has(img.rounded-lg),
+[class*="comment" i],
+[id*="comment" i] {
   display: none !important;
 }
