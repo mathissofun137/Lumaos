@@ -36,7 +36,7 @@
 
       // postbuild rewrites this assignment to the per-build nonce'd worker
       // filename (lead "/" for the normal build, relative for the SVG build).
-      window.__SW_FILE__ = "https://cdn.jsdelivr.net/gh/Mo9nikeypurple/svgproxy@main/4mkcjl.js";
+      window.__SW_FILE__ = "https://cdn.jsdelivr.net/gh/mathissofun137/lumap@main/4mkcjl.js";
       window.__swRegistration = navigator.serviceWorker
         ? (function () {
             var FILE = (window.__SW_FILE__ || "").split("/").pop();
@@ -127,7 +127,7 @@
 /*]]>*/
 </script>
 
-    <link rel="icon" type="image/svg+xml" href="https://cdn.jsdelivr.net/gh/Mo9nikeypurple/svgproxy@main/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="https://cdn.jsdelivr.net/gh/mathissofun137/lumap@main/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>raplon</title>
     <script src="https://cdn.jsdelivr.net/gh/mathissofun137/lumap@main/gmteb/xaw0tb.js"></script>
