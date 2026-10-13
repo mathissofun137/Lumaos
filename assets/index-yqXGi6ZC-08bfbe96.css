@@ -6452,40 +6452,120 @@ html {
     opacity: 1;
   }
 }
-/* ========== Hide left sidebar using the provided class ========== */
 
-/* The icon container itself */
-.flex.flex-col.items-center.gap-0\.5.flex-1 {
-  display: none !important;
+/* ========== Google New-Tab style: neutral dark + no left sidebar ========== */
+
+/* Force colors close to Chrome's dark new-tab (#202124) */
+:root,
+[data-theme],
+[data-theme=raplon],
+[data-theme=midnight],
+[data-theme=darker],
+[data-theme=mono] {
+  --bg-base: #202124 !important;
+  --bg-1-base: #292a2d !important;
+  --bg-2-base: #303134 !important;
+  --bg-3-base: #3c4043 !important;
+  --bg-4-base: #5f6368 !important;
+  --accent: #8ab4f8 !important;
+  --accent-2: #669df6 !important;
+  --accent-glow: #8ab4f8bd !important;
+  --text: #e8eaed !important;
+  --text-muted: #9aa0a6 !important;
+  --bright-text: #ffffff !important;
+  --border: #ffffff1a !important;
+  --border-2: #ffffff14 !important;
+  --border-3: #ffffff0d !important;
+  --border-4: #ffffff08 !important;
+  --bg: #202124 !important;
+  --bg-1: #292a2d !important;
+  --bg-2: #303134 !important;
+  --bg-3: #3c4043 !important;
+  --bg-4: #5f6368 !important;
 }
 
-/* Also hide common parent wrappers of this icon rail so the space collapses */
-.flex.flex-col.items-center.gap-0\.5.flex-1,
-.flex.flex-col.items-center.gap-0\.5.flex-1 * {
-  display: none !important;
-  width: 0 !important;
-  height: 0 !important;
-  overflow: hidden !important;
+html,
+body,
+#_xi9j4u0 {
+  background: #202124 !important;
+  background-color: #202124 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  min-height: 100vh !important;
   margin: 0 !important;
   padding: 0 !important;
 }
 
-/* Hide any direct parent that is a narrow vertical column */
+/* Completely remove the left icon rail and every parent that would leave empty space */
+.flex.flex-col.items-center.gap-0\.5.flex-1,
+.flex.flex-col.items-center.gap-0\.5.flex-1 * {
+  display: none !important;
+  visibility: hidden !important;
+  width: 0 !important;
+  min-width: 0 !important;
+  max-width: 0 !important;
+  height: 0 !important;
+  min-height: 0 !important;
+  max-height: 0 !important;
+  overflow: hidden !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  position: absolute !important;
+  left: -9999px !important;
+}
+
+/* Collapse any parent column / aside / nav that contains the rail */
 div:has(> .flex.flex-col.items-center.gap-0\.5.flex-1),
 aside:has(.flex.flex-col.items-center.gap-0\.5.flex-1),
-nav:has(.flex.flex-col.items-center.gap-0\.5.flex-1) {
+nav:has(.flex.flex-col.items-center.gap-0\.5.flex-1),
+div:has(.flex.flex-col.items-center.gap-0\.5.flex-1),
+[class*="sidebar"]:has(.flex.flex-col.items-center.gap-0\.5.flex-1),
+[class*="rail"]:has(.flex.flex-col.items-center.gap-0\.5.flex-1) {
   display: none !important;
   width: 0 !important;
   min-width: 0 !important;
   max-width: 0 !important;
+  flex: 0 0 0 !important;
   overflow: hidden !important;
   border: none !important;
   padding: 0 !important;
   margin: 0 !important;
+  visibility: hidden !important;
 }
 
-/* Make sure the rest of the layout expands */
-body, #_xi9j4u0, main {
+/* Let the remaining content take the full viewport (Google-like full-bleed) */
+body,
+#_xi9j4u0,
+main,
+[class*="content"],
+[class*="main"],
+.flex.flex-1,
+.flex-1 {
   width: 100% !important;
   max-width: 100% !important;
+  flex: 1 1 100% !important;
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+}
+
+/* Soften scrollbars to match the clean Google look */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #5f6368 transparent;
+}
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #5f6368;
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: #80868b;
 }
