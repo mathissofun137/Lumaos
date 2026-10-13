@@ -6453,11 +6453,10 @@ html {
   }
 }
 /* ============================================================
-   Google New Tab Page rebrand
-   Matches the classic dark Google Chrome NTP look
+   Google Chrome-inspired rebrand
    ============================================================ */
 
-/* ---- Core theme: dark Google NTP ---- */
+/* ---- Force light Chrome-like theme variables ---- */
 :root,
 [data-theme],
 [data-theme=raplon],
@@ -6476,49 +6475,49 @@ html {
 [data-theme=peach],
 [data-theme=synthwave],
 [data-theme=fall] {
-  --bg-base: #202124;
-  --bg-1-base: #292a2d;
-  --bg-2-base: #303134;
-  --bg-3-base: #3c4043;
-  --bg-4-base: #5f6368;
+  --bg-base: #ffffff;
+  --bg-1-base: #f8f9fa;
+  --bg-2-base: #f1f3f4;
+  --bg-3-base: #e8eaed;
+  --bg-4-base: #dadce0;
 
-  --bg: #202124;
-  --bg-1: #292a2d;
-  --bg-2: #303134;
-  --bg-3: #3c4043;
-  --bg-4: #5f6368;
+  --bg: #ffffff;
+  --bg-1: #f8f9fa;
+  --bg-2: #f1f3f4;
+  --bg-3: #e8eaed;
+  --bg-4: #dadce0;
 
-  --accent: #8ab4f8;
-  --accent-2: #aecbfa;
-  --accent-glow: #8ab4f840;
+  --accent: #1a73e8;
+  --accent-2: #1967d2;
+  --accent-glow: #1a73e880;
 
-  --text: #e8eaed;
-  --text-muted: #9aa0a6;
-  --bright-text: #ffffff;
+  --text: #202124;
+  --text-muted: #5f6368;
+  --bright-text: #000000;
 
-  --border: #3c4043;
-  --border-2: #5f6368;
-  --border-3: #80868b;
-  --border-4: #9aa0a6;
+  --border: #dadce0;
+  --border-2: #e8eaed;
+  --border-3: #f1f3f4;
+  --border-4: #f8f9fa;
 }
 
-/* ---- Base ---- */
-html, body, #_xi9j4u0 {
-  background: #202124 !important;
-  color: #e8eaed !important;
-  font-family: "Google Sans", "Product Sans", "Segoe UI", Roboto, Arial, sans-serif !important;
-  min-height: 100vh !important;
-  margin: 0 !important;
-  padding: 0 !important;
+/* Glass mode still readable */
+[data-glass] {
+  --glass-alpha: 92%;
+  --glass-blur: 12px;
+  --bg: color-mix(in srgb, #ffffff 92%, transparent);
+  --bg-1: color-mix(in srgb, #f8f9fa 92%, transparent);
+  --bg-2: color-mix(in srgb, #f1f3f4 92%, transparent);
+  --bg-3: color-mix(in srgb, #e8eaed 92%, transparent);
+  --bg-4: color-mix(in srgb, #dadce0 92%, transparent);
+  --shell-bg: transparent;
 }
 
-/* ---- Completely remove left sidebar ---- */
+/* ---- Hide the left icon sidebar completely ---- */
 .flex.flex-col.items-center.gap-0\.5.flex-1,
 div:has(> .flex.flex-col.items-center.gap-0\.5.flex-1),
 aside:has(.flex.flex-col.items-center.gap-0\.5.flex-1),
-nav:has(.flex.flex-col.items-center.gap-0\.5.flex-1),
-[class*="sidebar"],
-[class*="Sidebar"] {
+nav:has(.flex.flex-col.items-center.gap-0\.5.flex-1) {
   display: none !important;
   width: 0 !important;
   min-width: 0 !important;
@@ -6527,176 +6526,135 @@ nav:has(.flex.flex-col.items-center.gap-0\.5.flex-1),
   border: none !important;
   padding: 0 !important;
   margin: 0 !important;
-  pointer-events: none !important;
 }
 
-/* ---- Center the whole page content like Google NTP ---- */
-body, #_xi9j4u0 {
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important;
-  justify-content: center !important;
-  text-align: center !important;
-}
-
-/* ---- Big centered "Google" style title ---- */
-h1, 
-[class*="logo"],
-[class*="brand"],
-[class*="title"],
-.text-5xl, .text-6xl, .text-7xl, .text-8xl,
-[class*="text-5xl"], [class*="text-6xl"], [class*="text-7xl"] {
-  font-size: 90px !important;
-  font-weight: 400 !important;
-  color: #ffffff !important;
-  letter-spacing: -1.5px !important;
-  margin: 0 0 28px 0 !important;
-  text-shadow: none !important;
-  background: none !important;
-  -webkit-text-fill-color: #ffffff !important;
-}
-
-/* Force any remaining pink/red title colors to white */
-[style*="color"][style*="ff"],
-[class*="text-"][class*="pink"],
-[class*="text-"][class*="rose"],
-[class*="text-"][class*="red"] {
-  color: #ffffff !important;
-}
-
-/* ---- Search bar → white Google-style pill ---- */
-input[type="search"],
-input[type="text"],
-input[placeholder*="Search"],
-input[placeholder*="search"],
-input[placeholder*="Ask"],
-[class*="search"] input,
-[role="search"] input {
+/* ---- Chrome-like base styles ---- */
+body, html, #_xi9j4u0 {
   background: #ffffff !important;
   color: #202124 !important;
-  border: none !important;
-  border-radius: 24px !important;
-  height: 46px !important;
-  min-height: 46px !important;
-  width: 100% !important;
-  max-width: 584px !important;
-  padding: 0 20px !important;
-  font-size: 16px !important;
-  box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28) !important;
-  outline: none !important;
+  font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, "Roboto", "Helvetica Neue", Arial, sans-serif !important;
 }
 
-input[type="search"]:focus,
-input[type="text"]:focus,
-input[placeholder*="Search"]:focus,
-input[placeholder*="Ask"]:focus {
-  background: #ffffff !important;
-  box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28) !important;
-  border: none !important;
-  outline: none !important;
+/* Scrollbars closer to Chrome */
+* {
+  scrollbar-color: #dadce0 transparent !important;
 }
-
-/* Placeholder color */
-input::placeholder {
-  color: #5f6368 !important;
-  opacity: 1 !important;
-}
-
-/* ---- Shortcut / app icons row → circular Google shortcuts ---- */
-[class*="grid"] > div,
-[class*="flex"] > a,
-[class*="flex"] > button,
-[class*="apps"] > *,
-[class*="shortcuts"] > * {
-  /* keep structure but style children */
-}
-
-/* Make icon buttons circular and dark */
-a[class*="rounded"],
-button[class*="rounded"],
-div[class*="rounded-full"],
-[class*="icon"] {
-  border-radius: 50% !important;
-}
-
-/* Soften any remaining colored backgrounds on icons */
-[class*="bg-"] {
-  /* leave most alone */
-}
-
-/* ---- Hide elements that don't belong on Google NTP ---- */
-/* Discord / social buttons, status text, online indicators, etc. */
-[class*="discord"],
-[href*="discord"],
-[class*="online"],
-[class*="status"],
-[class*="presence"],
-button:has([class*="discord"]),
-a:has([class*="discord"]) {
-  display: none !important;
-}
-
-/* ---- Cards / containers transparent or dark ---- */
-[class*="card"],
-[class*="panel"],
-[class*="modal"] {
-  background: #292a2d !important;
-  border: 1px solid #3c4043 !important;
-  border-radius: 12px !important;
-  box-shadow: none !important;
-}
-
-/* ---- Links ---- */
-a {
-  color: #8ab4f8 !important;
-  text-decoration: none !important;
-}
-a:hover {
-  text-decoration: underline !important;
-}
-
-/* ---- Scrollbars (subtle) ---- */
 ::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
+  width: 12px;
+  height: 12px;
 }
 ::-webkit-scrollbar-track {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: #5f6368;
-  border-radius: 5px;
+  background-color: #dadce0;
+  border-radius: 8px;
+  border: 3px solid transparent;
+  background-clip: padding-box;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #80868b;
+  background-color: #bdc1c6;
 }
 
-/* ---- Remove any leftover pink/rose/red accents ---- */
-[class*="text-rose"],
-[class*="text-red"],
-[class*="text-pink"],
-[class*="bg-rose"],
-[class*="bg-red"],
-[class*="bg-pink"],
-[class*="border-rose"],
-[class*="border-red"],
-[class*="border-pink"] {
-  color: #e8eaed !important;
-  background-color: transparent !important;
-  border-color: #3c4043 !important;
+/* ---- Buttons / interactive elements → Chrome blue ---- */
+button,
+[role="button"],
+.cursor-pointer {
+  transition: background-color 0.15s, box-shadow 0.15s, color 0.15s;
 }
 
-/* ---- Ensure full width & no leftover margins from old sidebar ---- */
-body, #_xi9j4u0, main, [class*="content"], [class*="main"] {
+/* Primary-looking buttons */
+button:not([class*="ghost"]):not([class*="secondary"]),
+[class*="bg-accent"],
+[style*="background"] {
+  /* leave most alone, only override strong accent usage */
+}
+
+/* Soften heavy pink/red accents that may remain */
+[style*="#ff6b8b"],
+[style*="#c4344f"],
+[style*="ff6b8b"] {
+  color: #1a73e8 !important;
+}
+
+/* ---- Cards / surfaces ---- */
+[class*="rounded"],
+[class*="bg-"],
+.card {
+  border-radius: 12px !important; /* Chrome-like soft rounding */
+}
+
+/* Search / omnibox style */
+input[type="search"],
+input[type="text"],
+[placeholder*="Search"],
+[placeholder*="search"] {
+  background: #f1f3f4 !important;
+  border: 1px solid transparent !important;
+  border-radius: 24px !important; /* pill shape like Chrome omnibox */
+  color: #202124 !important;
+  padding-left: 16px !important;
+  padding-right: 16px !important;
+  box-shadow: none !important;
+}
+input[type="search"]:focus,
+input[type="text"]:focus,
+[placeholder*="Search"]:focus {
+  background: #ffffff !important;
+  border-color: #1a73e8 !important;
+  box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28) !important;
+  outline: none !important;
+}
+
+/* ---- Top bar / toolbar feel ---- */
+header,
+[class*="toolbar"],
+[class*="top-bar"],
+[class*="titlebar"] {
+  background: #ffffff !important;
+  border-bottom: 1px solid #dadce0 !important;
+  box-shadow: none !important;
+}
+
+/* ---- Remove strong pink glow / neon effects ---- */
+[style*="glow"],
+[class*="glow"],
+[class*="accent-glow"] {
+  box-shadow: none !important;
+  text-shadow: none !important;
+}
+
+/* ---- Make the big logo / title more Chrome-like ---- */
+h1, h2, [class*="logo"], [class*="brand"] {
+  color: #202124 !important;
+  font-weight: 400 !important;
+  letter-spacing: -0.5px !important;
+}
+
+/* ---- Links ---- */
+a {
+  color: #1a73e8 !important;
+}
+a:hover {
+  color: #174ea6 !important;
+  text-decoration: underline !important;
+}
+
+/* ---- Checkboxes closer to Material ---- */
+:where(input[type=checkbox]) {
+  border-radius: 2px !important;
+  border-color: #5f6368 !important;
+  background: #ffffff !important;
+}
+:where(input[type=checkbox]:checked) {
+  background: #1a73e8 !important;
+  border-color: #1a73e8 !important;
+}
+
+/* ---- Ensure full-width after sidebar removal ---- */
+body, #_xi9j4u0, main, [class*="content"] {
   margin-left: 0 !important;
   padding-left: 0 !important;
   width: 100% !important;
   max-width: 100% !important;
-}
-
-/* ---- Extra: make the whole home view feel empty & centered ---- */
-#_xi9j4u0 > * {
-  max-width: 680px;
-  margin-left: auto;
-  margin-right: auto;
 }
