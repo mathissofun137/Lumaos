@@ -6509,24 +6509,3 @@ body, #_xi9j4u0, main {
 [id*="comment" i] {
   display: none !important;
 }
-
-/* ========== Hide the comment cards (they are 20rem wide, so match the cards and their row) ========== */
-.w-\[20rem\],
-*:has(> .w-\[20rem\]) {
-  display: none !important;
-}
-
-/* ========== Hide "users online" line + Discord button ========== */
-a[href*="discord" i],
-button:has(+ a[href*="discord" i]),
-*:has(+ a[href*="discord" i]),
-*:has(+ * a[href*="discord" i]),
-*:has(+ [class*="discord" i]),
-[class*="discord" i],
-[id*="discord" i],
-[aria-label*="discord" i],
-[aria-label*="online" i],
-[class*="online" i],
-[id*="online" i] {
-  display: none !important;
-}
