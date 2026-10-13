@@ -1,0 +1,2 @@
+- name: jsDelivr Cache Purge
+  uses: kaycodes13/purge-jsdelivr-cache@v1.1.0
