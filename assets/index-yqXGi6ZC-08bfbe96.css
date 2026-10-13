@@ -6509,3 +6509,105 @@ body, #_xi9j4u0, main {
 [id*="comment" i] {
   display: none !important;
 }
+
+/* ========== Google Chrome look ========== */
+:root, html, html[data-theme], [data-theme] {
+  --glass-alpha: 100%;
+  --glass-blur: 0px;
+  --glass-filter: none;
+  --bg-base: #ffffff;
+  --bg-1-base: #ffffff;       /* toolbar + active tab */
+  --bg-2-base: #f1f3f4;       /* omnibox */
+  --bg-3-base: #e8eaed;
+  --bg-4-base: #dadce0;
+  --accent: #1a73e8;
+  --accent-2: #1967d2;
+  --accent-glow: #1a73e880;
+  --text: #3c4043;
+  --text-muted: #5f6368;
+  --bright-text: #202124;
+  --border: #bdc1c6;
+  --border-2: #dadce0;
+  --border-3: #e3e5e8;
+  --border-4: #e8eaed;
+  --chrome-frame: #dee1e6;
+  --raplon-font: "Segoe UI", Roboto, "Helvetica Neue", Arial, system-ui, sans-serif;
+  color-scheme: light;
+}
+body, html { background: #fff !important; }
+
+/* --- tab strip (frame) --- */
+._68jxnii.overflow-hidden {
+  background: var(--chrome-frame) !important;
+  border-bottom: 0 !important;
+  padding: 8px 8px 0 8px !important;
+  gap: 0 !important;
+  align-items: flex-end !important;
+}
+/* every tab */
+._68jxnii.overflow-hidden .group.relative {
+  height: 34px !important;
+  border-radius: 8px 8px 0 0 !important;
+  padding-left: 12px !important;
+  padding-right: 8px !important;
+  max-width: 240px !important;
+  font-weight: 400 !important;
+}
+._68jxnii.overflow-hidden .group.relative span { font-weight: 400 !important; font-size: 12px !important; }
+/* active tab = white, same colour as toolbar so they merge */
+._68jxnii.overflow-hidden .group.relative > .absolute.inset-0.bg-\(--bg-4\) {
+  background: #fff !important;
+  border-radius: 8px 8px 0 0 !important;
+}
+/* hover on inactive tabs */
+._68jxnii.overflow-hidden .group.relative > .absolute.inset-0.bg-\(--bg-2\) {
+  background: rgba(255,255,255,.55) !important;
+  border-radius: 8px !important;
+  inset: 4px 0 !important;
+}
+/* thin separator between tabs */
+._68jxnii.overflow-hidden .group.relative:not(:last-of-type)::after {
+  content: ""; position: absolute; right: 0; top: 9px; bottom: 9px;
+  width: 1px; background: #9aa0a6; opacity: .55; pointer-events: none;
+}
+/* tab close button + new tab button are round */
+._68jxnii.overflow-hidden button { border-radius: 50% !important; }
+._68jxnii.overflow-hidden button:hover { background: rgba(60,64,67,.12) !important; }
+._68jxnii.overflow-hidden > button { width: 28px !important; height: 28px !important; margin: 0 0 3px 4px; align-self: center; }
+
+/* --- toolbar --- */
+._68jxnii:not(.overflow-hidden) {
+  background: #fff !important;
+  border-bottom: 1px solid #dadce0 !important;
+  padding: 5px 8px !important;
+  gap: 6px !important;
+  box-shadow: none !important;
+}
+._68jxnii:not(.overflow-hidden) button {
+  border-radius: 50% !important;
+  width: 32px; height: 32px;
+  color: #5f6368 !important;
+}
+._68jxnii:not(.overflow-hidden) button:hover:not(:disabled) { background: #f1f3f4 !important; }
+._68jxnii:not(.overflow-hidden) button:active:not(:disabled) { background: #e8eaed !important; }
+
+/* omnibox (address bar): pill-shaped, grey, turns white + blue ring on focus */
+._68jxnii:not(.overflow-hidden) div.cursor-text {
+  height: 36px !important;
+  border-radius: 999px !important;
+  background: #f1f3f4 !important;
+  border: 1px solid transparent !important;
+  padding: 0 14px !important;
+}
+._68jxnii:not(.overflow-hidden) div.cursor-text:hover { background: #e8eaed !important; }
+._68jxnii:not(.overflow-hidden) div.cursor-text:focus-within {
+  background: #fff !important;
+  border-color: #1a73e8 !important;
+  box-shadow: 0 0 0 1px #1a73e8, 0 1px 6px rgba(32,33,36,.28);
+}
+._68jxnii:not(.overflow-hidden) div.cursor-text input {
+  font-size: 14px !important;
+  color: #202124 !important;
+}
+/* suggestions dropdown */
+._68jxnii:not(.overflow-hidden) div.cursor-text > div.absolute { border-radius: 0 0 16px 16px !important; box-shadow: 0 4px 6px rgba(32,33,36,.28) !important; }
