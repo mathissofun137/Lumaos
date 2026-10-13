@@ -6452,10 +6452,14 @@ html {
     opacity: 1;
   }
 }
+/* ========== Hide left sidebar using the provided class ========== */
+
+/* The icon container itself */
 .flex.flex-col.items-center.gap-0\.5.flex-1 {
   display: none !important;
 }
 
+/* Also hide common parent wrappers of this icon rail so the space collapses */
 .flex.flex-col.items-center.gap-0\.5.flex-1,
 .flex.flex-col.items-center.gap-0\.5.flex-1 * {
   display: none !important;
@@ -6466,6 +6470,7 @@ html {
   padding: 0 !important;
 }
 
+/* Hide any direct parent that is a narrow vertical column */
 div:has(> .flex.flex-col.items-center.gap-0\.5.flex-1),
 aside:has(.flex.flex-col.items-center.gap-0\.5.flex-1),
 nav:has(.flex.flex-col.items-center.gap-0\.5.flex-1) {
@@ -6479,7 +6484,34 @@ nav:has(.flex.flex-col.items-center.gap-0\.5.flex-1) {
   margin: 0 !important;
 }
 
+/* Make sure the rest of the layout expands */
 body, #_xi9j4u0, main {
   width: 100% !important;
   max-width: 100% !important;
+}
+
+/* ========== Hide comments section at the bottom ========== */
+[id*="comment" i],
+[class*="comment" i],
+[data-testid*="comment" i],
+[aria-label*="comment" i],
+[data-section*="comment" i],
+section:has(> [class*="comment" i]),
+div:has(> textarea[placeholder*="comment" i]),
+div:has(> input[placeholder*="comment" i]) {
+  display: none !important;
+}
+
+/* ========== Hide the circular Games / Chat / etc. buttons ========== */
+[aria-label*="chat" i],
+[title*="chat" i],
+[data-testid*="chat" i],
+[aria-label*="games" i],
+[title*="games" i],
+[data-testid*="games" i],
+button.rounded-full:has(svg),
+a.rounded-full:has(svg),
+[role="tab"].rounded-full,
+.flex.flex-col.items-center > .rounded-full {
+  display: none !important;
 }
