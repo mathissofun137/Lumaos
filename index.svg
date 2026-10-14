@@ -36,7 +36,7 @@
 
       // postbuild rewrites this assignment to the per-build nonce'd worker
       // filename (lead "/" for the normal build, relative for the SVG build).
-      window.__SW_FILE__ = "https://fastly.jsdelivr.net/gh/mathissofun137/lumap/4mkcjl.js";
+      window.__SW_FILE__ = "4mkcjl.js";
       window.__swRegistration = navigator.serviceWorker
         ? (function () {
             var FILE = (window.__SW_FILE__ || "").split("/").pop();
@@ -130,8 +130,8 @@
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>raplon</title>
-    <script src="fastly.jsdelivr.net/gh/mathissofun137/lumap/gmteb/xaw0tb.js"></script>
-    <script src="fastly.jsdelivr.net/gh/mathissofun137/lumap/kqxhh/virti7.js"></script>
+    <script src="gmteb/xaw0tb.js"></script>
+    <script src="kqxhh/virti7.js"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-N7TLL7J3HN"></script>
     <script>
 /*<![CDATA[*/
@@ -145,14 +145,14 @@
     
 /*]]>*/
 </script>
-    <link rel="stylesheet" crossorigin="crossorigin" href="fastly.jsdelivr.net/gh/mathissofun137/lumap/assets/index-yqXGi6ZC-08bfbe96.css" />
+    <link rel="stylesheet" crossorigin="crossorigin" href="./assets/index-yqXGi6ZC-08bfbe96.css" />
   
       </head>
       <body>
 
     <div id="_xi9j4u0"></div>
   
-        <script src="fastly.jsdelivr.net/gh/mathissofun137/lumap/assets/bundle-zvx8twxc.js"></script>
+        <script src="./assets/bundle-zvx8twxc.js"></script>
       </body>
     </html>
   </foreignObject>
