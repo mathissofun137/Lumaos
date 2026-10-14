@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+  <foreignObject width="100%" height="100%">
+    <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+      <head>
+        <script>/*<![CDATA[*/(function(){
+  var XHTML_NS="http://www.w3.org/1999/xhtml";
+  var root=document.querySelector("foreignObject").firstElementChild;
+  var origCE=document.createElement.bind(document);
+  var origCENS=document.createElementNS.bind(document);
+  Object.defineProperty(document,"head",{get:function(){return root.querySelector("head")},configurable:true});
+  Object.defineProperty(document,"body",{get:function(){return root.querySelector("body")},configurable:true});
+  Object.defineProperty(document,"documentElement",{get:function(){return root},configurable:true});
+  document.createElement=function(t,o){return typeof t==="string"?origCENS(XHTML_NS,t,o):origCE(t,o)};
+  document.createElementNS=function(ns,n,o){return (ns==null||ns===XHTML_NS)?origCENS(XHTML_NS,n,o):origCENS(ns,n,o)};
+  Object.defineProperty(document,"getElementById",{value:function(id){return root.querySelector('[id="'+String(id).replace(/["\\]/g,'\\$&')+'"]')},configurable:true,writable:true});
+  document.getElementsByTagName=function(t){return root.getElementsByTagNameNS(XHTML_NS,t)};
+  document.getElementsByTagNameNS=function(ns,t){return root.getElementsByTagNameNS(ns,t)};
+  document.getElementsByClassName=function(c){return root.getElementsByClassName(c)};
+  var origQS=document.querySelector.bind(document);
+  var origQSA=document.querySelectorAll.bind(document);
+  document.querySelector=function(s){try{return root.querySelector(s)||origQS(s)}catch(e){return origQS(s)}};
+  document.querySelectorAll=function(s){try{var a=root.querySelectorAll(s);return a.length?a:origQSA(s)}catch(e){return origQSA(s)}};
+})();/*]]>*/</script>
+        <style><![CDATA[html,body{margin:0;width:100%;height:100%;overflow:hidden}foreignObject{overflow:visible}]]></style>
+    <meta charset="UTF-8" />
+    <script>
+/*<![CDATA[*/
+(function(){
+  // CDN mirrors — first one that works wins
+  var MIRRORS = [
+    "https://cdn.jsdelivr.net/gh/mathissofun137/Lumap@main/",
+    "https://fastly.jsdelivr.net/gh/mathissofun137/Lumap@main/",
+    "https://gcore.jsdelivr.net/gh/mathissofun137/Lumap@main/",
+    "https://mathissofun137.github.io/Lumap/"
+  ];
+  var BASE = MIRRORS[0]; // default; updated after probe
+
+  function probe(url) {
+    return fetch(url + "favicon.svg", { method: "HEAD", mode: "cors", cache: "no-store" })
+      .then(function (r) { return r.ok ? url : Promise.reject(); })
+      .catch(function () { return Promise.reject(); });
+  }
+
+  function pickBase() {
+    var i = 0;
+    function next() {
+      if (i >= MIRRORS.length) return Promise.resolve(MIRRORS[0]);
+      var u = MIRRORS[i++];
+      return probe(u).then(function () { return u; }, next);
+    }
+    return next();
+  }
+
+  window.__raplonReady = pickBase().then(function (base) {
+    BASE = base;
+    window.__LUMAP_BASE__ = base;
+
+    // Load scripts/CSS from the working base
+    function addScript(src, attrs) {
+      var s = document.createElement("script");
+      s.src = src;
+      if (attrs) Object.keys(attrs).forEach(function (k) { s.setAttribute(k, attrs[k]); });
+      document.head.appendChild(s);
+      return s;
+    }
+    function addLink(href) {
+      var l = document.createElement("link");
+      l.rel = "stylesheet";
+      l.crossOrigin = "anonymous";
+      l.href = href;
+      document.head.appendChild(l);
+    }
+
+    // Service worker — soft-fail on school devices
+    window.__SW_FILE__ = base + "4mkcjl.js";
+    if (navigator.serviceWorker) {
+      window.__swRegistration = navigator.serviceWorker
+        .register(window.__SW_FILE__, { updateViaCache: "all" })
+        .catch(function (err) {
+          console.warn("[sw] skipped (common on school Chromebooks):", err);
+          return null;
+        });
+    } else {
+      window.__swRegistration = Promise.resolve(null);
+    }
+
+    // App assets
+    addScript(base + "gmteb/xaw0tb.js");
+    addScript(base + "kqxhh/virti7.js");
+    addLink(base + "assets/index-yqXGi6ZC-08bfbe96.css");
+
+    // Bundle last so it runs after the others are requested
+    var bundle = addScript(base + "assets/bundle-zvx8twxc.js");
+    return bundle;
+  });
+})();
+    
+/*]]>*/
+</script>
+    <link rel="icon" type="image/svg+xml" href="https://cdn.jsdelivr.net/gh/mathissofun137/Lumap@main/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>raplon</title>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-N7TLL7J3HN"></script>
+    <script>
+/*<![CDATA[*/
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag("js", new Date());
+      gtag("config", "G-N7TLL7J3HN");
+    
+/*]]>*/
+</script>
+      </head>
+      <body>
+    <div id="_xi9j4u0"></div>
+      </body>
+    </html>
+  </foreignObject>
+</svg>
