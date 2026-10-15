@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lumaos</title>
+  <!--
+    EDIT THIS FILE in your repo: mathissofun137/Lumaos
+    After you push to main:
+      - GitHub Pages: https://mathissofun137.github.io/Lumaos/
+      - jsDelivr:     https://fastly.jsdelivr.net/gh/mathissofun137/Lumaos@main/
+    Change REPO below if you rename the repo or use another account.
+  -->
+  <style>
+    html, body {
+      margin: 0; height: 100%;
+      background: #0b0b0f; color: #eee;
+      font: 15px/1.4 system-ui, -apple-system, sans-serif;
+      display: flex; align-items: center; justify-content: center;
+    }
+    #status { opacity: 0.9; text-align: center; max-width: 28rem; padding: 1rem; }
+    #status small { display: block; margin-top: 0.5rem; opacity: 0.6; font-size: 12px; }
+  </style>
+</head>
+<body>
+  <div id="status">Loading Lumaos…<small>fetching from CDN mirrors</small></div>
+  <script>
+(async function () {
+  // ========== EDIT THESE ==========
+  var OWNER = "mathissofun137";
+  var REPO  = "Lumaos";
+  var REF   = "main";
+  // Optional: open the full app on GitHub Pages instead of injecting scripts
+  var PAGES_URL = "https://" + OWNER + ".github.io/" + REPO + "/";
+  // ================================
+
+  var status = document.getElementById("status");
+
+  // Prefer real Pages origin (service worker + localStorage work)
+  // Set USE_PAGES = false to force the CDN script-inject path instead
+  var USE_PAGES = true;
+  if (USE_PAGES) {
+    status.innerHTML = "Opening Lumaos…";
+    location.replace(PAGES_URL);
+    return;
+  }
+
+  // CDN mirror list (same idea as working singlefile loaders)
+  var path = "gh/" + OWNER + "/" + REPO + "@" + REF + "/";
+  var bases = [
+    "https://cdn.jsdelivr.net/" + path,
+    "https://fastly.jsdelivr.net/" + path,
+    "https://gcore.jsdelivr.net/" + path,
+    "https://testingcf.jsdelivr.net/" + path,
+    "https://quantil.jsdelivr.net/" + path,
+    "https://jsdelivr.b-cdn.net/" + path,
+    "https://cdn.statically.io/" + path,
+    "https://rawcdn.githack.com/" + OWNER + "/" + REPO + "/" + REF + "/",
+    "https://raw.githubusercontent.com/" + OWNER + "/" + REPO + "/" + REF + "/"
+  ];
+
+  // Core entry files from your Lumaos index.html build
+  var FILES = [
+    "assets/index-yqXGi6ZC-08bfbe96.css",
+    "gmteb/xaw0tb.js",
+    "kqxhh/virti7.js",
+    "assets/bundle-zvx8twxc.js"
+  ];
+
+  function loadCss(href) {
+    return new Promise(function (resolve) {
+      var l = document.createElement("link");
+      l.rel = "stylesheet";
+      l.href = href;
+      l.onload = function () { resolve(true); };
+      l.onerror = function () { resolve(false); };
+      document.head.appendChild(l);
+    });
+  }
+  function loadJs(src) {
+    return new Promise(function (resolve) {
+      var s = document.createElement("script");
+      s.src = src;
+      s.async = false;
+      s.onload = function () { resolve(true); };
+      s.onerror = function () { resolve(false); };
+      document.head.appendChild(s);
+    });
+  }
+
+  // Pick first mirror that serves build.txt or the bundle
+  var hour = Math.floor(Date.now() / 3600000);
+  var ac = new AbortController();
+  function probe(base) {
+    return fetch(base + "build.txt?raw&" + hour, { signal: ac.signal, cache: "no-store" })
+      .then(function (r) { if (!r.ok) throw new Error("bad"); return r.text(); })
+      .then(function () { return base; });
+  }
+
+  try {
+    var base = await Promise.any(bases.map(probe));
+    ac.abort();
+    window.RELAY_DOMAIN = base;
+    status.innerHTML = "Starting from<br><small>" + base + "</small>";
+
+    // mount root used by Lumaos bundle
+    var root = document.createElement("div");
+    root.id = "_xi9j4u0";
+    document.body.innerHTML = "";
+    document.body.style.display = "block";
+    document.body.appendChild(root);
+
+    // load css then js in order
+    await loadCss(base + FILES[0]);
+    for (var i = 1; i < FILES.length; i++) {
+      var ok = await loadJs(base + FILES[i]);
+      if (!ok) console.warn("failed", FILES[i]);
+    }
+  } catch (e) {
+    status.innerHTML = "CDN mirrors failed.<br><small>Try opening <a href=\"" + PAGES_URL + "\" style=\"color:#8cf\">GitHub Pages</a> directly.</small>";
+    console.error(e);
+  }
+})();
+  </script>
+</body>
+</html>
